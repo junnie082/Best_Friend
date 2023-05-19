@@ -15,7 +15,7 @@ class Notices extends StatefulWidget {
 }
 
 class _NoticesState extends State<Notices> {
-  List<Article> notices = [];
+  static List<Article> notices = [];
 
   @override
   void initState() {

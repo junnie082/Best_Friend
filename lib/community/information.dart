@@ -1,7 +1,6 @@
 import 'package:best_friend/appBar/BFAppBar.dart';
-import 'package:best_friend/buttons/style_elevated_button.dart';
 import 'package:best_friend/buttons/toggle_button_two_choices.dart';
-import 'package:best_friend/main_screens/main_community.dart';
+import 'package:best_friend/search/search.dart';
 import 'package:flutter/material.dart';
 import 'package:best_friend/api/fetch_articles.dart';
 import 'package:best_friend/api/fetch_notices.dart';
@@ -30,9 +29,35 @@ class _CommunityScreenState extends State<Information> {
         child: Column(
           children: [
             Container(
-              width: 450,
-              height: 30,
-              color: const Color.fromARGB(255, 244, 247, 140),
+              decoration: BoxDecoration(
+                color: Colors.yellow,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Search()),
+                  );
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.yellow),
+                ),
+                child: const SizedBox(
+                  width: 500,
+                  height: 40,
+                  child: Center(
+                    child: Text(
+                      '검색',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -48,7 +73,7 @@ class _CommunityScreenState extends State<Information> {
             ),
 
             // 커뮤니티의 [자유], [정보]
-            const BFToggleButton(text1: '자유', text2: '정보'),
+            const BFToggleButton(where: 0, text1: '자유', text2: '정보'),
             const SizedBox(
               height: 9,
             ),
