@@ -1,3 +1,5 @@
+import 'package:best_friend/community/information.dart';
+import 'package:best_friend/main_screens/main_community.dart';
 import 'package:flutter/material.dart';
 
 class BFToggleButton extends StatefulWidget {
@@ -24,6 +26,13 @@ class _BFToggleButtonState extends State<BFToggleButton> {
               setState(() {
                 _selectedIndex = 0;
               });
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      const CommunityScreen(),
+                ),
+              );
             },
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.black,
@@ -49,6 +58,14 @@ class _BFToggleButtonState extends State<BFToggleButton> {
               setState(() {
                 _selectedIndex = 1;
               });
+
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      const Information(),
+                ),
+              );
             },
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.black,
