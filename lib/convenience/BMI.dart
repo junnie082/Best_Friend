@@ -45,7 +45,7 @@ class BMI extends StatelessWidget {
                   SizedBox(
                     width: 60,
                   ),
-                  BFToggleButton(text1: '남', text2: '여'),
+                  BFToggleButton(where: 1, text1: '남', text2: '여'),
                 ],
               ),
               const SizedBox(height: 10),

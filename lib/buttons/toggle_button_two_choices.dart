@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 
 class BFToggleButton extends StatefulWidget {
   final String text1, text2;
-  const BFToggleButton({Key? key, required this.text1, required this.text2})
+  // where 이 0 이면 커뮤니티, 1 이면 BMI
+  final int where;
+  const BFToggleButton(
+      {Key? key, required this.text1, required this.text2, required this.where})
       : super(key: key);
 
   @override
@@ -12,7 +15,9 @@ class BFToggleButton extends StatefulWidget {
 }
 
 class _BFToggleButtonState extends State<BFToggleButton> {
-  int _selectedIndex = 0;
+  // '정보' 버튼을 눌러도 버튼 색이 변하지 않는 문제가 있었는데,
+  // static 으로 바꾸니 해결.
+  static int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +31,15 @@ class _BFToggleButtonState extends State<BFToggleButton> {
               setState(() {
                 _selectedIndex = 0;
               });
-              Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
-                      const CommunityScreen(),
-                ),
-              );
+              if (widget.where == 0) {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const CommunityScreen(),
+                  ),
+                );
+              }
             },
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.black,
@@ -43,7 +50,11 @@ class _BFToggleButtonState extends State<BFToggleButton> {
             ),
             child: Text(
               widget.text1,
-              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.bold,
+                color: _selectedIndex == 0 ? Colors.white : Colors.black,
+              ),
             ),
           ),
         ),
@@ -58,14 +69,15 @@ class _BFToggleButtonState extends State<BFToggleButton> {
               setState(() {
                 _selectedIndex = 1;
               });
-
-              Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
-                      const Information(),
-                ),
-              );
+              if (widget.where == 0) {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const Information(),
+                  ),
+                );
+              }
             },
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.black,
@@ -76,7 +88,11 @@ class _BFToggleButtonState extends State<BFToggleButton> {
             ),
             child: Text(
               widget.text2,
-              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.bold,
+                color: _selectedIndex == 1 ? Colors.white : Colors.black,
+              ),
             ),
           ),
         ),

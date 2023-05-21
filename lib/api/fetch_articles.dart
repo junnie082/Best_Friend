@@ -1,3 +1,4 @@
+import 'package:best_friend/api/data_of_articles.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as parser;
@@ -59,6 +60,9 @@ class _ArticlesState extends State<Articles> {
         (index) =>
             Article(url: detailLink[index], title: titles[index], urlImage: ''),
       );
+
+      DataOfArticles list = DataOfArticles();
+      DataOfArticles.listArticles = articles;
     });
   }
 
