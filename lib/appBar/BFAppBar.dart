@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:best_friend/main_screens/main_community.dart';
 import 'package:best_friend/main_screens/main_convenience.dart';
 import 'package:best_friend/main_screens/main_map.dart';
+import 'package:provider/provider.dart';
+import 'package:best_friend/data/join_or_login.dart';
 
 class BFAppBar extends StatelessWidget implements PreferredSizeWidget {
   // appBarFunction 이 1 이면 현재 화면이 커뮤니티 화면
@@ -87,7 +89,8 @@ class BFAppBar extends StatelessWidget implements PreferredSizeWidget {
                   context,
                   PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) =>
-                        AuthPage(),
+                        ChangeNotifierProvider<JoinOrLogin>.value(
+                            value: JoinOrLogin(), child: AuthPage()),
                   ),
                 );
               },
