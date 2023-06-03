@@ -8,14 +8,14 @@ import 'package:best_friend/api/fetch_articles.dart';
 
 // <web scraping> https://www.youtube.com/watch?v=9ZfRE_DN9a0
 
-class CommunityScreen extends StatefulWidget {
-  const CommunityScreen({super.key});
+class FAQs extends StatefulWidget {
+  const FAQs({super.key});
 
   @override
-  State<CommunityScreen> createState() => _CommunityScreenState();
+  State<FAQs> createState() => _CommunityScreenState();
 }
 
-class _CommunityScreenState extends State<CommunityScreen> {
+class _CommunityScreenState extends State<FAQs> {
 // ...
 
   @override

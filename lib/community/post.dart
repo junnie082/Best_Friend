@@ -79,6 +79,13 @@ class Post extends StatelessWidget {
                 ),
               ),
             ),
+            const StyleOfElevatedButton(
+                text: '글올리기',
+                round: 10,
+                bgColor: Color.fromARGB(255, 218, 130, 159),
+                textColor: Colors.black,
+                size: 20,
+                detailedScreen: CommunityScreen()),
           ],
         ),
       ),
