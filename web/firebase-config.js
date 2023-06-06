@@ -13,8 +13,8 @@ const firebaseConfig = {
   projectId: "bestfriend-189af",
   storageBucket: "bestfriend-189af.appspot.com",
   messagingSenderId: "138537994298",
-  appId: "1:138537994298:web:f72b2976ccb2f0df100d03",
-  measurementId: "G-E88YX77MZ4"
+  appId: "1:138537994298:web:49538ad74022df9f100d03",
+  measurementId: "G-XW0H3NNYT9"
 };
 
 // Initialize Firebase

@@ -2,12 +2,22 @@ import 'package:best_friend/data/join_or_login.dart';
 import 'package:best_friend/main_screens/login.dart';
 import 'package:best_friend/main_screens/main_community.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  if (kIsWeb)
+    await Firebase.initializeApp(
+      options: FirebaseOptions(
+        apiKey: "AIzaSyBCDSfkYF50lzMjn1mFaqp-KTk7Cl_TX1A",
+        appId: "1:138537994298:web:49538ad74022df9f100d03",
+        messagingSenderId: "138537994298",
+        projectId: "bestfriend-189af",
+      ),
+    );
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
