@@ -1,7 +1,7 @@
 import 'package:best_friend/data/join_or_login.dart';
 import 'package:flutter/material.dart';
-import 'package:best_friend/main_screens/main_community.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthPage extends StatelessWidget {
   AuthPage({Key? key}) : super(key: key);
@@ -57,9 +57,9 @@ class AuthPage extends StatelessWidget {
                       joinOrLogin.isJoin
                           ? "이미 계정이 있으신가요? 로그인하기"
                           : "계정이 없으신가요? 회원가입하기",
-                          style: TextStyle(
-                            color: Colors.blue,
-                          ),
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
                     )),
               ),
               Container(
@@ -68,6 +68,34 @@ class AuthPage extends StatelessWidget {
             ],
           ),
         ]));
+  }
+
+  void _login(BuildContext context) async {
+    final UserCredential result = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+            email: _emailController.text, password: _passwordController.text);
+    final User? user = result.user;
+
+    if (user == null) {
+      final snacBar = SnackBar(
+        content: Text('다시 시도해 주세요'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snacBar);
+    }
+  }
+
+  void _register(BuildContext context) async {
+    final UserCredential result = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+            email: _emailController.text, password: _passwordController.text);
+    final User? user = result.user;
+
+    if (user == null) {
+      final snacBar = SnackBar(
+        content: Text('다시 시도해 주세요'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snacBar);
+    }
   }
 
   Widget _authButton(Size size, BuildContext context) {
@@ -87,12 +115,7 @@ class AuthPage extends StatelessWidget {
             ),
             onPressed: () {
               if (_formkey.currentState?.validate() != null) {
-                //
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const CommunityScreen()),
-                );
+                joinOrLogin.isJoin ? _register(context) : _login(context);
               }
             },
             child: Text(
