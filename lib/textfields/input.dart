@@ -1,39 +1,50 @@
 import 'package:flutter/material.dart';
 
-class Input extends StatelessWidget {
+class Input extends StatefulWidget {
   final double sizeOfBox;
   final String category;
-  const Input({super.key, this.sizeOfBox = 130, required this.category});
+  final ValueChanged<String> onChanged;
 
-  // 이 함수에서 입력된 값을 handling 함.
-  void textChanged(String value) {
-    print(value);
-  }
+  const Input({
+    super.key,
+    this.sizeOfBox = 130,
+    required this.category,
+    required this.onChanged,
+  });
+
+  @override
+  State<Input> createState() => _InputState();
+}
+
+class _InputState extends State<Input> {
+  String inputValue = "";
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
-        Text(
-          category,
-          style: const TextStyle(
-              color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(
-          width: 70,
-        ),
-        // TextField 를 클래스로 만들 것.
-        SizedBox(
-          width: sizeOfBox,
-          child: TextField(
-            onChanged: textChanged,
-            decoration: InputDecoration(
-              labelText: '$category를 입력하세요',
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            widget.category,
+            style: const TextStyle(
+                color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            width: 70,
+          ),
+          // TexField 를 클래스로 만들 것.
+          SizedBox(
+            width: widget.sizeOfBox,
+            child: TextField(
+              onChanged: widget.onChanged,
+              decoration: InputDecoration(
+                labelText: '${widget.category}를 입력하세요',
+                hintText: ':',
+              ),
             ),
           ),
-        ),
-        //BFInputField(nameInputField: '나이를 입력하세요'),
-      ],
-    );
+          //BFInputField(nameInputField: '나이를 입력하세요'),
+        ]);
   }
 }

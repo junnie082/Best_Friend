@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class BFToggleButton extends StatefulWidget {
   final String text1, text2;
   // where 이 0 이면 커뮤니티, 1 이면 BMI
-  final int where;
+  final double where;
   const BFToggleButton(
       {Key? key, required this.text1, required this.text2, required this.where})
       : super(key: key);

@@ -24,12 +24,13 @@ class Post extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
         child: Column(
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Input(
                   category: '제목',
                   sizeOfBox: 250,
+                  onChanged: (value) {},
                 ),
               ],
             ),

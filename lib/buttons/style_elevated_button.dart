@@ -34,7 +34,10 @@ class StyleOfElevatedButton extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-            color: textColor, fontSize: size, fontWeight: FontWeight.bold),
+          color: textColor,
+          fontSize: size,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
