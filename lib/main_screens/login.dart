@@ -1,27 +1,28 @@
+import 'package:best_friend/main_screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:best_friend/main_screens/main_community.dart';
 
 class AuthPage extends StatelessWidget {
+  final String imageUrl =
+      'https://lh3.googleusercontent.com/u/0/drive-viewer/AFGJ81oPOO1KRCND3vAnBoUuOeYrwGeYHTMrn1-_Ei7TLkhQMcKKvidbGXAmEFtNNpztOdTz3K2ZBvG1f7p317aDMpSVbsyDSg=w2940-h1618';
+
   AuthPage({Key? key}) : super(key: key);
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-            "로그인",
+            "Best_Friend",
             style: TextStyle(
               fontSize: 27,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
-          ),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () {},
           ),
         ),
         body: Stack(alignment: Alignment.center, children: <Widget>[
@@ -31,7 +32,11 @@ class AuthPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Container(
-                  width: 200, height: 200, color: Colors.blue), // 로고 넣을 자리
+                child: Image.network(
+                  imageUrl,
+                  fit: BoxFit.fill,
+                ),
+              ), // 로고 넣을 자리
               SizedBox(
                 width: 850,
                 child: Stack(
@@ -72,8 +77,7 @@ class AuthPage extends StatelessWidget {
               //
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => const CommunityScreen()),
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
               );
             }
           },
