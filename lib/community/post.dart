@@ -74,7 +74,6 @@ class Post extends StatelessWidget {
                     filled: true,
                     fillColor: Colors.grey,
                     labelText: '내용을 입력하세요',
-                    hintText: ':',
                   ),
                 ),
               ),

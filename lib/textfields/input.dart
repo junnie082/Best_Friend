@@ -22,14 +22,13 @@ class Input extends StatelessWidget {
         const SizedBox(
           width: 70,
         ),
-        // TexField 를 클래스로 만들 것.
+        // TextField 를 클래스로 만들 것.
         SizedBox(
           width: sizeOfBox,
           child: TextField(
             onChanged: textChanged,
             decoration: InputDecoration(
               labelText: '$category를 입력하세요',
-              hintText: ':',
             ),
           ),
         ),
