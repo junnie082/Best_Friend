@@ -1,5 +1,7 @@
 import 'package:best_friend/appBar/BFAppBar.dart';
-import 'package:best_friend/buttons/toggle_button_two_choices.dart';
+import 'package:best_friend/buttons/style_elevated_button.dart';
+import 'package:best_friend/buttons/toggle_button_kinds_of_disabled.dart';
+import 'package:best_friend/community/post.dart';
 import 'package:best_friend/search/search.dart';
 import 'package:flutter/material.dart';
 import 'package:best_friend/api/fetch_articles.dart';
@@ -60,7 +62,7 @@ class _CommunityScreenState extends State<Information> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 5,
             ),
 
             // 뉴스 기사(복지 정보)
@@ -69,13 +71,34 @@ class _CommunityScreenState extends State<Information> {
               queryString: 'td.td_subject.text-left > a',
             ),
             const SizedBox(
-              height: 10,
+              height: 2,
             ),
 
             // 커뮤니티의 [자유], [정보]
-            const BFToggleButton(where: 0, text1: '자유', text2: '정보'),
-            const SizedBox(
-              height: 9,
+
+            SizedBox(
+              width: 20,
+            ),
+
+            const Row(
+              children: [
+                // 자유 버튼
+                BFToggleButtonCategories(),
+                SizedBox(
+                  width: 30,
+                ),
+                SizedBox(
+                  width: 70,
+                  height: 35,
+                  child: StyleOfElevatedButton(
+                      detailedScreen: Post(),
+                      text: '글쓰기',
+                      round: 0,
+                      bgColor: Color(0xFFEFC6EB),
+                      textColor: Colors.black,
+                      size: 12),
+                ),
+              ],
             ),
             // 커뮤니티 - 전체, 신체, 정신
 
@@ -88,7 +111,7 @@ class _CommunityScreenState extends State<Information> {
             const Notices(
               link: "http://www.mapowelfare.or.kr/bbs/board.php?bo_table=0305",
               queryString: "td.td_subject.text-left > a",
-            )
+            ),
           ],
         ),
       ),

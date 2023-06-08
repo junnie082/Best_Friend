@@ -5,12 +5,13 @@ import 'package:best_friend/community/post.dart';
 import 'package:best_friend/search/search.dart';
 import 'package:flutter/material.dart';
 import 'package:best_friend/api/fetch_articles.dart';
-import 'package:best_friend/buttons/toggle_button_two_choices.dart';
 
 // <web scraping> https://www.youtube.com/watch?v=9ZfRE_DN9a0
 
 class CommunityScreen extends StatefulWidget {
-  const CommunityScreen({super.key});
+  const CommunityScreen({this.email = ''});
+
+  final String email;
 
   @override
   State<CommunityScreen> createState() => _CommunityScreenState();
@@ -63,7 +64,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
             ),
 
             const SizedBox(
-              height: 20,
+              height: 5,
             ),
 
             // 뉴스 기사(복지 정보)
@@ -72,30 +73,16 @@ class _CommunityScreenState extends State<CommunityScreen> {
               queryString: 'td.td_subject.text-left > a',
             ),
             const SizedBox(
-              height: 10,
+              height: 2,
             ),
 
             // 커뮤니티의 [자유], [정보]
             const Row(
               children: [
                 // 자유 버튼
-                BFToggleButton(
-                  where: 0,
-                  text1: '자유',
-                  text2: '정보',
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 2,
-            ),
-
-            const BFToggleButtonKindDisabled(),
-            // 커뮤니티 - 전체, 신체, 정신
-            const Row(
-              children: [
+                BFToggleButtonCategories(),
                 SizedBox(
-                  width: 250,
+                  width: 30,
                 ),
                 SizedBox(
                   width: 70,
@@ -110,6 +97,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                 ),
               ],
             ),
+
             // 글 등록하기. (데이터 베이스 필요?)
           ],
         ),
