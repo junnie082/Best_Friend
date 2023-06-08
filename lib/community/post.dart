@@ -61,13 +61,13 @@ class Post extends StatelessWidget {
             const SizedBox(height: 10),
             Container(
               width: 700,
-              height: 550,
+              height: 450,
               decoration: const BoxDecoration(
                 color: Colors.grey,
               ),
               child: SizedBox(
                 width: 700,
-                height: 300,
+                height: 200,
                 child: TextField(
                   onChanged: textChanged,
                   decoration: const InputDecoration(

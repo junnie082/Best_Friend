@@ -30,13 +30,13 @@ class CalCalculator extends StatelessWidget {
             height: 30,
             color: const Color.fromARGB(255, 244, 247, 140),
           ),
-          const SizedBox(height: 500),
+          const SizedBox(height: 450),
           const Align(
             alignment: Alignment.centerLeft,
             child: Text(
               '전체 칼로리: ',
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 20,
               ),
             ),
           )
@@ -59,7 +59,7 @@ class CalCalculator extends StatelessWidget {
             ),
           ),
           Container(
-            height: 80,
+            height: 70,
             color: Colors.blue,
           ),
         ],

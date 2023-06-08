@@ -34,115 +34,127 @@ class _BFToggleButtonState extends State<BFToggleButtonCategories> {
             });
           },
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    _selectedIndex == 0 ? Colors.lightGreen : Colors.grey,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-              ),
-              onPressed: () {
-                setState(() {
-                  _selectedIndex = 0;
-                });
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) =>
-                        const AllCategories(),
+            Container(
+              width: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      _selectedIndex == 0 ? Colors.lightGreen : Colors.grey,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                );
-              },
-              child: const Text(
-                '전체',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 11,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _selectedIndex = 0;
+                  });
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const AllCategories(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  '전체',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 10,
+                  ),
                 ),
               ),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    _selectedIndex == 1 ? Colors.lightGreen : Colors.grey,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-              ),
-              onPressed: () {
-                setState(() {
-                  _selectedIndex = 1;
-                });
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) =>
-                        const CommunityScreen(),
+            Container(
+              width: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      _selectedIndex == 1 ? Colors.lightGreen : Colors.grey,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                );
-              },
-              child: const Text(
-                '자유',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _selectedIndex = 1;
+                  });
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const CommunityScreen(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  '자유',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 10,
+                  ),
                 ),
               ),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    _selectedIndex == 2 ? Colors.lightGreen : Colors.grey,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-              ),
-              onPressed: () {
-                setState(() {
-                  _selectedIndex = 2;
-                });
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) =>
-                        const Information(),
+            Container(
+              width: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      _selectedIndex == 2 ? Colors.lightGreen : Colors.grey,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                );
-              },
-              child: const Text(
-                '정보',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _selectedIndex = 2;
+                  });
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const Information(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  '정보',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 10,
+                  ),
                 ),
               ),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    _selectedIndex == 3 ? Colors.lightGreen : Colors.grey,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-              ),
-              onPressed: () {
-                setState(() {
-                  _selectedIndex = 3;
-                });
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) =>
-                        const FAQs(),
+            Container(
+              width: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      _selectedIndex == 3 ? Colors.lightGreen : Colors.grey,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                );
-              },
-              child: const Text(
-                'FAQs',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _selectedIndex = 3;
+                  });
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const FAQs(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  '질문',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 10,
+                  ),
                 ),
               ),
             ),
