@@ -1,5 +1,7 @@
+import 'package:best_friend/data/join_or_login.dart';
 import 'package:flutter/material.dart';
-import 'package:best_friend/main_screens/main_community.dart';
+import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthPage extends StatelessWidget {
   AuthPage({Key? key}) : super(key: key);
@@ -11,12 +13,14 @@ class AuthPage extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
-          title: const Text(
-            "로그인",
-            style: TextStyle(
-              fontSize: 27,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+          title: Consumer<JoinOrLogin>(
+            builder: (context, JoinOrLogin, child) => Text(
+              JoinOrLogin.isJoin ? "회원가입" : "로그인",
+              style: TextStyle(
+                fontSize: 27,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
           ),
           leading: IconButton(
@@ -44,13 +48,54 @@ class AuthPage extends StatelessWidget {
               Container(
                 height: size.height * 0.1,
               ),
-              const Text("회원가입 버튼 text는 추후 수정"),
+              Consumer<JoinOrLogin>(
+                builder: (context, joinOrLogin, child) => GestureDetector(
+                    onTap: () {
+                      joinOrLogin.toggle();
+                    },
+                    child: Text(
+                      joinOrLogin.isJoin
+                          ? "이미 계정이 있으신가요? 로그인하기"
+                          : "계정이 없으신가요? 회원가입하기",
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
+                    )),
+              ),
               Container(
                 height: size.height * 0.05,
               ),
             ],
           ),
         ]));
+  }
+
+  void _login(BuildContext context) async {
+    final UserCredential result = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+            email: _emailController.text, password: _passwordController.text);
+    final User? user = result.user;
+
+    if (user == null) {
+      final snacBar = SnackBar(
+        content: Text('다시 시도해 주세요'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snacBar);
+    }
+  }
+
+  void _register(BuildContext context) async {
+    final UserCredential result = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+            email: _emailController.text, password: _passwordController.text);
+    final User? user = result.user;
+
+    if (user == null) {
+      final snacBar = SnackBar(
+        content: Text('다시 시도해 주세요'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snacBar);
+    }
   }
 
   Widget _authButton(Size size, BuildContext context) {
@@ -60,26 +105,23 @@ class AuthPage extends StatelessWidget {
       bottom: 0,
       child: SizedBox(
         height: 50,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
+        child: Consumer<JoinOrLogin>(
+          builder: (context, joinOrLogin, child) => ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25),
+              ),
             ),
-          ),
-          onPressed: () {
-            if (_formkey.currentState?.validate() != null) {
-              //
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const CommunityScreen()),
-              );
-            }
-          },
-          child: const Text(
-            "로그인",
-            style: TextStyle(fontSize: 20, color: Colors.white),
+            onPressed: () {
+              if (_formkey.currentState?.validate() != null) {
+                joinOrLogin.isJoin ? _register(context) : _login(context);
+              }
+            },
+            child: Text(
+              joinOrLogin.isJoin ? "회원가입" : "로그인",
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            ),
           ),
         ),
       ),
@@ -130,7 +172,11 @@ class AuthPage extends StatelessWidget {
                     Container(
                       height: 8,
                     ),
-                    const Text("비밀번호를 잊으셨나요? 비밀번호 찾기")
+                    Consumer<JoinOrLogin>(
+                      builder: (context, value, child) => Opacity(
+                          opacity: value.isJoin ? 0 : 1,
+                          child: Text("비밀번호를 잊으셨나요? 비밀번호 찾기")),
+                    )
                   ])),
         ),
       ),

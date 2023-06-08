@@ -9,7 +9,9 @@ import 'package:best_friend/api/fetch_articles.dart';
 // <web scraping> https://www.youtube.com/watch?v=9ZfRE_DN9a0
 
 class CommunityScreen extends StatefulWidget {
-  const CommunityScreen({super.key});
+  const CommunityScreen({this.email = ''});
+
+  final String email;
 
   @override
   State<CommunityScreen> createState() => _CommunityScreenState();
