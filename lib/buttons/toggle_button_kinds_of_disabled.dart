@@ -1,62 +1,151 @@
 import 'package:flutter/material.dart';
-import 'package:best_friend/buttons/style_elevated_button.dart';
+import 'package:best_friend/community/all_categories.dart';
+import 'package:best_friend/community/FAQs.dart';
 import 'package:best_friend/community/information.dart';
+import 'package:best_friend/main_screens/main_community.dart';
 
-class BFToggleButtonKindDisabled extends StatefulWidget {
-  const BFToggleButtonKindDisabled({super.key});
+class BFToggleButtonCategories extends StatefulWidget {
+  const BFToggleButtonCategories({Key? key}) : super(key: key);
 
   @override
   _BFToggleButtonState createState() => _BFToggleButtonState();
 }
 
-class _BFToggleButtonState extends State<BFToggleButtonKindDisabled> {
-  final List<bool> _isSelected = [false, false, false];
+class _BFToggleButtonState extends State<BFToggleButtonCategories> {
+  // 누르는 버튼이 초록색이고 나머지 버튼이 회색임을 유지하고 싶다면 _selectedIndex 앞에 static 을 붙여라!
+  static int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         ToggleButtons(
-          isSelected: _isSelected,
+          isSelected: [
+            _selectedIndex == 0,
+            _selectedIndex == 1,
+            _selectedIndex == 2,
+            _selectedIndex == 3,
+          ],
           borderColor: Colors.transparent,
           onPressed: (index) {
             setState(() {
-              _isSelected[index] = !_isSelected[index];
-              if (index == 0) {
-                _isSelected[index + 1] = !_isSelected[index];
-                _isSelected[index + 2] = !_isSelected[index];
-              } else if (index == 1) {
-                _isSelected[index - 1] = !_isSelected[index];
-                _isSelected[index + 1] = !_isSelected[index];
-              } else {
-                _isSelected[index - 2] = !_isSelected[index];
-                _isSelected[index - 1] = !_isSelected[index];
-              }
-              // Handle button press event here
+              _selectedIndex = index;
             });
           },
-          children: const [
-            StyleOfElevatedButton(
-                detailedScreen: Information(),
-                text: '전체',
-                round: 50,
-                bgColor: Colors.lightGreen,
-                textColor: Colors.black,
-                size: 11),
-            StyleOfElevatedButton(
-                detailedScreen: Information(),
-                text: '신체',
-                round: 50,
-                bgColor: Colors.grey,
-                textColor: Colors.black,
-                size: 12),
-            StyleOfElevatedButton(
-                detailedScreen: Information(),
-                text: '정신',
-                round: 50,
-                bgColor: Colors.grey,
-                textColor: Colors.black,
-                size: 12),
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    _selectedIndex == 0 ? Colors.lightGreen : Colors.grey,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
+              onPressed: () {
+                setState(() {
+                  _selectedIndex = 0;
+                });
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const AllCategories(),
+                  ),
+                );
+              },
+              child: const Text(
+                '전체',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 11,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    _selectedIndex == 1 ? Colors.lightGreen : Colors.grey,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
+              onPressed: () {
+                setState(() {
+                  _selectedIndex = 1;
+                });
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const CommunityScreen(),
+                  ),
+                );
+              },
+              child: const Text(
+                '자유',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    _selectedIndex == 2 ? Colors.lightGreen : Colors.grey,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
+              onPressed: () {
+                setState(() {
+                  _selectedIndex = 2;
+                });
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const Information(),
+                  ),
+                );
+              },
+              child: const Text(
+                '정보',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    _selectedIndex == 3 ? Colors.lightGreen : Colors.grey,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
+              onPressed: () {
+                setState(() {
+                  _selectedIndex = 3;
+                });
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const FAQs(),
+                  ),
+                );
+              },
+              child: const Text(
+                'FAQs',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                ),
+              ),
+            ),
           ],
         ),
       ],

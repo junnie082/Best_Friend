@@ -1,5 +1,7 @@
 import 'package:best_friend/appBar/BFAppBar.dart';
-import 'package:best_friend/buttons/toggle_button_two_choices.dart';
+import 'package:best_friend/buttons/style_elevated_button.dart';
+import 'package:best_friend/buttons/toggle_button_kinds_of_disabled.dart';
+import 'package:best_friend/community/post.dart';
 import 'package:best_friend/search/search.dart';
 import 'package:flutter/material.dart';
 import 'package:best_friend/api/fetch_articles.dart';
@@ -73,9 +75,29 @@ class _CommunityScreenState extends State<Information> {
             ),
 
             // 커뮤니티의 [자유], [정보]
-            const BFToggleButton(where: 0, text1: '자유', text2: '정보'),
+            const BFToggleButtonCategories(),
+
             const SizedBox(
-              height: 9,
+              height: 1.4,
+            ),
+
+            const Row(
+              children: [
+                SizedBox(
+                  width: 250,
+                ),
+                SizedBox(
+                  width: 70,
+                  height: 35,
+                  child: StyleOfElevatedButton(
+                      detailedScreen: Post(),
+                      text: '글쓰기',
+                      round: 0,
+                      bgColor: Color(0xFFEFC6EB),
+                      textColor: Colors.black,
+                      size: 12),
+                ),
+              ],
             ),
             // 커뮤니티 - 전체, 신체, 정신
 
@@ -88,7 +110,7 @@ class _CommunityScreenState extends State<Information> {
             const Notices(
               link: "http://www.mapowelfare.or.kr/bbs/board.php?bo_table=0305",
               queryString: "td.td_subject.text-left > a",
-            )
+            ),
           ],
         ),
       ),
