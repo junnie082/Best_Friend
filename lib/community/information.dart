@@ -62,7 +62,7 @@ class _CommunityScreenState extends State<Information> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 5,
             ),
 
             // 뉴스 기사(복지 정보)
@@ -71,20 +71,21 @@ class _CommunityScreenState extends State<Information> {
               queryString: 'td.td_subject.text-left > a',
             ),
             const SizedBox(
-              height: 10,
+              height: 2,
             ),
 
             // 커뮤니티의 [자유], [정보]
-            const BFToggleButtonCategories(),
 
-            const SizedBox(
-              height: 1.4,
+            SizedBox(
+              width: 20,
             ),
 
             const Row(
               children: [
+                // 자유 버튼
+                BFToggleButtonCategories(),
                 SizedBox(
-                  width: 250,
+                  width: 30,
                 ),
                 SizedBox(
                   width: 70,

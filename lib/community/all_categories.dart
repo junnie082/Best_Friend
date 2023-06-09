@@ -9,7 +9,9 @@ import 'package:best_friend/api/fetch_articles.dart';
 // <web scraping> https://www.youtube.com/watch?v=9ZfRE_DN9a0
 
 class AllCategories extends StatefulWidget {
-  const AllCategories({super.key});
+  const AllCategories({this.email = ''});
+
+  final String email;
 
   @override
   State<AllCategories> createState() => _CommunityScreenState();
@@ -62,7 +64,7 @@ class _CommunityScreenState extends State<AllCategories> {
             ),
 
             const SizedBox(
-              height: 20,
+              height: 5,
             ),
 
             // 뉴스 기사(복지 정보)
@@ -71,7 +73,7 @@ class _CommunityScreenState extends State<AllCategories> {
               queryString: 'td.td_subject.text-left > a',
             ),
             const SizedBox(
-              height: 10,
+              height: 2,
             ),
 
             // 커뮤니티의 [자유], [정보]
@@ -79,16 +81,8 @@ class _CommunityScreenState extends State<AllCategories> {
               children: [
                 // 자유 버튼
                 BFToggleButtonCategories(),
-              ],
-            ),
-            const SizedBox(
-              height: 2,
-            ),
-
-            const Row(
-              children: [
                 SizedBox(
-                  width: 250,
+                  width: 30,
                 ),
                 SizedBox(
                   width: 70,
@@ -103,6 +97,7 @@ class _CommunityScreenState extends State<AllCategories> {
                 ),
               ],
             ),
+
             // 글 등록하기. (데이터 베이스 필요?)
           ],
         ),
