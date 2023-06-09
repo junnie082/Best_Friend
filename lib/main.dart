@@ -1,4 +1,5 @@
 import 'package:best_friend/data/join_or_login.dart';
+import 'package:best_friend/main_screens/home_screen.dart';
 import 'package:best_friend/main_screens/login.dart';
 import 'package:best_friend/main_screens/main_community.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -45,7 +46,7 @@ class Splash extends StatelessWidget {
           return CircularProgressIndicator();
         } else if (snapshot.hasData) {
           // 사용자가 로그인한 경우
-          return CommunityScreen(email: snapshot.data?.email ?? '');
+          return HomeScreen(email: snapshot.data?.email ?? '');
         } else {
           // 사용자가 로그아웃한 경우
           return ChangeNotifierProvider<JoinOrLogin>.value(

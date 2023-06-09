@@ -83,6 +83,7 @@ class BFAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
+            // Spacer(),
             TextButton(
               onPressed: () {
                 Navigator.push(

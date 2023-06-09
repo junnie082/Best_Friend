@@ -24,12 +24,13 @@ class Post extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
         child: Column(
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Input(
                   category: '제목',
                   sizeOfBox: 250,
+                  onChanged: (value) {},
                 ),
               ],
             ),
@@ -61,24 +62,30 @@ class Post extends StatelessWidget {
             const SizedBox(height: 10),
             Container(
               width: 700,
-              height: 550,
+              height: 450,
               decoration: const BoxDecoration(
                 color: Colors.grey,
               ),
               child: SizedBox(
                 width: 700,
-                height: 300,
+                height: 200,
                 child: TextField(
                   onChanged: textChanged,
                   decoration: const InputDecoration(
                     filled: true,
                     fillColor: Colors.grey,
                     labelText: '내용을 입력하세요',
-                    hintText: ':',
                   ),
                 ),
               ),
             ),
+            const StyleOfElevatedButton(
+                text: '글올리기',
+                round: 10,
+                bgColor: Color.fromARGB(255, 218, 130, 159),
+                textColor: Colors.black,
+                size: 20,
+                detailedScreen: CommunityScreen()),
           ],
         ),
       ),

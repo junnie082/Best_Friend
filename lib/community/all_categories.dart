@@ -5,18 +5,19 @@ import 'package:best_friend/community/post.dart';
 import 'package:best_friend/search/search.dart';
 import 'package:flutter/material.dart';
 import 'package:best_friend/api/fetch_articles.dart';
-import 'package:best_friend/api/fetch_notices.dart';
 
 // <web scraping> https://www.youtube.com/watch?v=9ZfRE_DN9a0
 
-class Information extends StatefulWidget {
-  const Information({super.key});
+class AllCategories extends StatefulWidget {
+  const AllCategories({this.email = ''});
+
+  final String email;
 
   @override
-  State<Information> createState() => _CommunityScreenState();
+  State<AllCategories> createState() => _CommunityScreenState();
 }
 
-class _CommunityScreenState extends State<Information> {
+class _CommunityScreenState extends State<AllCategories> {
 // ...
 
   @override
@@ -47,7 +48,7 @@ class _CommunityScreenState extends State<Information> {
                 ),
                 child: const SizedBox(
                   width: 500,
-                  height: 20,
+                  height: 40,
                   child: Center(
                     child: Text(
                       '검색',
@@ -61,6 +62,7 @@ class _CommunityScreenState extends State<Information> {
                 ),
               ),
             ),
+
             const SizedBox(
               height: 5,
             ),
@@ -72,12 +74,6 @@ class _CommunityScreenState extends State<Information> {
             ),
             const SizedBox(
               height: 2,
-            ),
-
-            // 커뮤니티의 [자유], [정보]
-
-            SizedBox(
-              width: 20,
             ),
 
             const Row(
@@ -100,18 +96,8 @@ class _CommunityScreenState extends State<Information> {
                 ),
               ],
             ),
-            // 커뮤니티 - 전체, 신체, 정신
 
-            // 글 등록하기. (데이터 베이스 필요?)
-
-            const SizedBox(
-              height: 0,
-            ),
-            // 공지 사항
-            const Notices(
-              link: "http://www.mapowelfare.or.kr/bbs/board.php?bo_table=0305",
-              queryString: "td.td_subject.text-left > a",
-            ),
+            // TODO post.dart로 넘어가는 버튼 만들기
           ],
         ),
       ),

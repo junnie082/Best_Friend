@@ -5,6 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthPage extends StatelessWidget {
   AuthPage({Key? key}) : super(key: key);
+  final String imageUrl =
+      'https://lh3.googleusercontent.com/u/0/drive-viewer/AFGJ81oPOO1KRCND3vAnBoUuOeYrwGeYHTMrn1-_Ei7TLkhQMcKKvidbGXAmEFtNNpztOdTz3K2ZBvG1f7p317aDMpSVbsyDSg=w2940-h1618';
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -35,7 +37,11 @@ class AuthPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Container(
-                  width: 200, height: 200, color: Colors.blue), // 로고 넣을 자리
+                child: Image.network(
+                  imageUrl,
+                  fit: BoxFit.fill,
+                ),
+              ),
               SizedBox(
                 width: 850,
                 child: Stack(
