@@ -1,7 +1,6 @@
 import 'package:best_friend/data/join_or_login.dart';
 import 'package:best_friend/main_screens/home_screen.dart';
 import 'package:best_friend/main_screens/login.dart';
-import 'package:best_friend/main_screens/main_community.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

@@ -95,8 +95,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                 ),
               ],
             ),
-
-            //TODO post.dart로 가는 버튼 만들기
+            //TODO post.dart로 가는 버튼
           ],
         ),
       ),

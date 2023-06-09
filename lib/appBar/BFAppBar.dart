@@ -1,10 +1,7 @@
-import 'package:best_friend/main_screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:best_friend/main_screens/main_community.dart';
 import 'package:best_friend/main_screens/main_convenience.dart';
 import 'package:best_friend/main_screens/main_map.dart';
-import 'package:provider/provider.dart';
-import 'package:best_friend/data/join_or_login.dart';
 
 class BFAppBar extends StatelessWidget implements PreferredSizeWidget {
   // appBarFunction 이 1 이면 현재 화면이 커뮤니티 화면
@@ -19,7 +16,6 @@ class BFAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      automaticallyImplyLeading: false,
       actions: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -76,27 +72,6 @@ class BFAppBar extends StatelessWidget implements PreferredSizeWidget {
               },
               child: const Text(
                 '지도',
-                style: TextStyle(
-                  fontSize: 27,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            // Spacer(),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) =>
-                        ChangeNotifierProvider<JoinOrLogin>.value(
-                            value: JoinOrLogin(), child: AuthPage()),
-                  ),
-                );
-              },
-              child: const Text(
-                '로그아웃',
                 style: TextStyle(
                   fontSize: 27,
                   fontWeight: FontWeight.bold,

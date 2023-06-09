@@ -1,9 +1,11 @@
-import 'package:best_friend/main_screens/main_community.dart';
-import 'package:flutter/material.dart';
+import 'package:best_friend/data/join_or_login.dart';
+import 'package:best_friend/main.dart';
 import 'package:best_friend/main_screens/login.dart';
+import 'package:best_friend/main_screens/main_community.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:best_friend/main_screens/main_convenience.dart';
 import 'package:best_friend/main_screens/main_map.dart';
-import 'package:best_friend/data/join_or_login.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,21 +30,20 @@ class HomeScreenState extends State<HomeScreen> {
         actions: [
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
-                      ChangeNotifierProvider<JoinOrLogin>.value(
-                          value: JoinOrLogin(), child: AuthPage()),
-                ),
-              );
+              FirebaseAuth.instance.currentUser != null
+                  ? FirebaseAuth.instance.signOut()
+                  : Navigator.push(context, PageRouteBuilder(
+                      pageBuilder: (context, child, animaintion) {
+                      return ChangeNotifierProvider<JoinOrLogin>.value(
+                          value: JoinOrLogin(), child: AuthPage());
+                    }));
             },
-            child: const Text(
-              '로그아웃',
+            child: Text(
+              "로그아웃",
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 27,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
             ),
           ),
