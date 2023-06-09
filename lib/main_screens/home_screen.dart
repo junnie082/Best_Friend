@@ -51,7 +51,7 @@ class HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(50),
+                    padding: const EdgeInsets.all(30),
                     child: Image.network(
                       imageUrl,
                       fit: BoxFit.fill,
@@ -65,7 +65,7 @@ class HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 40,
                   ),
                   const Button(
                     pagelink: CommunityScreen(),
@@ -105,15 +105,16 @@ class Button extends StatelessWidget {
       children: [
         SizedBox(
           width: 250,
-          height: 65,
+          height: 60,
           child: ElevatedButton(
             style: ButtonStyle(
+              elevation: MaterialStateProperty.all<double>(4),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                  side: const BorderSide(
-                    color: Colors.black,
-                  ),
+                  borderRadius: BorderRadius.circular(30),
+                  // side: const BorderSide(
+                  //   color: Colors.white,
+                  // ),
                 ),
               ),
             ),
@@ -129,9 +130,9 @@ class Button extends StatelessWidget {
             child: Text(
               pagename,
               style: const TextStyle(
-                color: Colors.black,
+                color: Colors.white,
                 fontSize: 27,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w100,
               ),
             ),
           ),
