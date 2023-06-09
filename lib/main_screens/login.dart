@@ -1,4 +1,5 @@
 import 'package:best_friend/data/join_or_login.dart';
+import 'package:best_friend/main_screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,7 +28,15 @@ class AuthPage extends StatelessWidget {
           ),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      HomeScreen(),
+                ),
+              );
+            },
           ),
         ),
         body: Stack(alignment: Alignment.center, children: <Widget>[

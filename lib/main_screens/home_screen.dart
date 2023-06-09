@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:best_friend/main_screens/login.dart';
 import 'package:best_friend/main_screens/main_convenience.dart';
 import 'package:best_friend/main_screens/main_map.dart';
+import 'package:best_friend/data/join_or_login.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({this.email = ''});
@@ -22,14 +24,16 @@ class HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         actions: [
           ElevatedButton(
             onPressed: () {
-              Navigator.pop(
+              Navigator.push(
                 context,
                 PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) =>
-                      AuthPage(),
+                      ChangeNotifierProvider<JoinOrLogin>.value(
+                          value: JoinOrLogin(), child: AuthPage()),
                 ),
               );
             },
