@@ -51,9 +51,6 @@ class _BMIState extends State<BMI> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 20,
-              ),
               Input(
                 category: '나이',
                 onChanged: (value) {
@@ -80,7 +77,7 @@ class _BMIState extends State<BMI> {
                   });
                 },
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
               // 성별 토글.
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
