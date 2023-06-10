@@ -29,7 +29,7 @@ class Post extends StatelessWidget {
               children: [
                 Input(
                   category: '제목',
-                  sizeOfBox: 250,
+                  sizeOfBox: 240,
                   onChanged: (value) {},
                 ),
               ],

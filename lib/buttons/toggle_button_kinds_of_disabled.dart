@@ -35,7 +35,7 @@ class _BFToggleButtonState extends State<BFToggleButtonCategories> {
           },
           children: [
             Container(
-              width: 50,
+              width: 55,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
@@ -61,12 +61,13 @@ class _BFToggleButtonState extends State<BFToggleButtonCategories> {
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 10,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
             Container(
-              width: 50,
+              width: 55,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
@@ -92,12 +93,13 @@ class _BFToggleButtonState extends State<BFToggleButtonCategories> {
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 10,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
             Container(
-              width: 50,
+              width: 55,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
@@ -123,12 +125,13 @@ class _BFToggleButtonState extends State<BFToggleButtonCategories> {
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 10,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
             Container(
-              width: 50,
+              width: 55,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
@@ -154,6 +157,7 @@ class _BFToggleButtonState extends State<BFToggleButtonCategories> {
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 10,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),

@@ -72,30 +72,29 @@ class _NoticesState extends State<Notices> {
       children: [
         if (notices.isNotEmpty) ...[
           for (var i = 0; i < min(10, notices.length); i++)
-            GestureDetector(
-              onTap: () => launchUrl(Uri.parse(notices[i].url)),
-              child: Container(
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(),
-                width: 400,
-                height: 40,
-                child: ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  title: Text(
-                    '${i + 1}. ${notices[i].title}',
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
+            SizedBox(
+              height: 40,
+              child: GestureDetector(
+                onTap: () => launchUrl(Uri.parse(notices[i].url)),
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: const BoxDecoration(),
+                  width: 400,
+                  height: 26,
+                  child: ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    title: Text(
+                      '${i + 1}. ${notices[i].title}',
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.start,
                     ),
-                    textAlign: TextAlign.start,
                   ),
                 ),
               ),
             ),
-          for (var i = 0; i < 10 - min(10, notices.length); i++)
-            const SizedBox(
-                height:
-                    40), // Add space between items// Add space between items
         ],
       ],
     );

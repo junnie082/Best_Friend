@@ -26,7 +26,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
         appBarFunction: 1,
       ), // 여기서 에러 있었는데 gpt 가 고쳐줌.
       body: Padding(
-        padding: const EdgeInsets.all(40),
+        padding: const EdgeInsets.all(23),
         child: Column(
           children: [
             Container(
@@ -74,13 +74,13 @@ class _CommunityScreenState extends State<CommunityScreen> {
               height: 2,
             ),
 
-            // 커뮤니티의 [자유], [정보]
+            // 커뮤니티의 [전체], [자유], [정보], [질문]
             const Row(
               children: [
-                // 자유 버튼
+                // 카테고리 버튼
                 BFToggleButtonCategories(),
                 SizedBox(
-                  width: 30,
+                  width: 50,
                 ),
                 SizedBox(
                   width: 70,

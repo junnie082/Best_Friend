@@ -28,7 +28,7 @@ class _CommunityScreenState extends State<FAQs> {
         appBarFunction: 1,
       ), // 여기서 에러 있었는데 gpt 가 고쳐줌.
       body: Padding(
-        padding: const EdgeInsets.all(40),
+        padding: const EdgeInsets.all(23),
         child: Column(
           children: [
             Container(
@@ -82,7 +82,7 @@ class _CommunityScreenState extends State<FAQs> {
                 // 자유 버튼
                 BFToggleButtonCategories(),
                 SizedBox(
-                  width: 30,
+                  width: 50,
                 ),
                 SizedBox(
                   width: 70,

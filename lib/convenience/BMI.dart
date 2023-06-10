@@ -59,7 +59,7 @@ class _BMIState extends State<BMI> {
                   });
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               Input(
                 category: '체중',
                 onChanged: (value) {
@@ -68,7 +68,7 @@ class _BMIState extends State<BMI> {
                   });
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               Input(
                 category: '신장',
                 onChanged: (value) {
@@ -77,7 +77,7 @@ class _BMIState extends State<BMI> {
                   });
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               // 성별 토글.
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -106,7 +106,7 @@ class _BMIState extends State<BMI> {
               // 나중에 여기에 계산된 BMI 지수가 나타남.
               Container(
                 width: 300,
-                height: 100,
+                height: 70,
                 decoration: BoxDecoration(
                     color: const Color(0xFFC3DAEF),
                     borderRadius: BorderRadius.circular(10)),

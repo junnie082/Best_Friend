@@ -13,7 +13,7 @@ class ConvenienceScreen extends StatelessWidget {
           appBarFunction: 2,
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 150, vertical: 250),
+          padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 250),
           child: Column(
             children: [
               SizedBox(

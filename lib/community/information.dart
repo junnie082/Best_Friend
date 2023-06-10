@@ -27,7 +27,7 @@ class _CommunityScreenState extends State<Information> {
         appBarFunction: 1,
       ), // 여기서 에러 있었는데 gpt 가 고쳐줌.
       body: Padding(
-        padding: const EdgeInsets.all(40),
+        padding: const EdgeInsets.all(23),
         child: Column(
           children: [
             Container(
@@ -47,7 +47,7 @@ class _CommunityScreenState extends State<Information> {
                 ),
                 child: const SizedBox(
                   width: 500,
-                  height: 20,
+                  height: 40,
                   child: Center(
                     child: Text(
                       '검색',
@@ -85,7 +85,7 @@ class _CommunityScreenState extends State<Information> {
                 // 자유 버튼
                 BFToggleButtonCategories(),
                 SizedBox(
-                  width: 30,
+                  width: 50,
                 ),
                 SizedBox(
                   width: 70,
@@ -104,9 +104,6 @@ class _CommunityScreenState extends State<Information> {
 
             // 글 등록하기. (데이터 베이스 필요?)
 
-            const SizedBox(
-              height: 0,
-            ),
             // 공지 사항
             const Notices(
               link: "http://www.mapowelfare.or.kr/bbs/board.php?bo_table=0305",

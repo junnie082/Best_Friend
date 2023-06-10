@@ -72,21 +72,21 @@ class _SearchState extends State<Search> {
                 GestureDetector(
                   onTap: () => launchUrl(Uri.parse(filteredList[i].url)),
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Container(
                       width: 450,
-                      height: 60,
+                      height: 70,
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 236, 247, 254),
-                        borderRadius: BorderRadius.circular(5),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 2,
-                            blurRadius: 10,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(0),
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //     color: Colors.grey.withOpacity(0.5),
+                        //     spreadRadius: 2,
+                        //     blurRadius: 10,
+                        //     offset: const Offset(0, 3),
+                        //   ),
+                        // ],
                       ),
                       // Your container code...
                       child: Padding(
@@ -97,6 +97,8 @@ class _SearchState extends State<Search> {
                               '${i + 1}. ${filteredList[i].title}',
                               style: const TextStyle(
                                 fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
                               ),
                               textAlign: TextAlign.start,
                             ),
@@ -106,7 +108,7 @@ class _SearchState extends State<Search> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20), // Increased spacing between items
+                // Increased spacing between items
               ],
             ],
           ],
