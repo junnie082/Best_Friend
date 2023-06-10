@@ -45,106 +45,108 @@ class _BMIState extends State<BMI> {
         ),
         actions: const [],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Input(
-                category: '나이',
-                onChanged: (value) {
-                  setState(() {
-                    if (value != "") age = double.parse(value);
-                  });
-                },
-              ),
-              const SizedBox(height: 20),
-              Input(
-                category: '체중',
-                onChanged: (value) {
-                  setState(() {
-                    if (value != "") weight = double.parse(value);
-                  });
-                },
-              ),
-              const SizedBox(height: 20),
-              Input(
-                category: '신장',
-                onChanged: (value) {
-                  setState(() {
-                    if (value != "") height = double.parse(value);
-                  });
-                },
-              ),
-              const SizedBox(height: 20),
-              // 성별 토글.
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '성별',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    width: 60,
-                  ),
-                  BFToggleButton(where: 1, text1: '남', text2: '여'),
-                ],
-              ),
-              const SizedBox(height: 10),
-              const Padding(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  '내 BMI 지수는',
-                  style: TextStyle(fontSize: 30, color: Colors.black),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Input(
+                  category: '나이',
+                  onChanged: (value) {
+                    setState(() {
+                      if (value != "") age = double.parse(value);
+                    });
+                  },
                 ),
-              ),
-              // 나중에 여기에 계산된 BMI 지수가 나타남.
-              Container(
-                width: 300,
-                height: 70,
-                decoration: BoxDecoration(
-                    color: const Color(0xFFC3DAEF),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(
+                const SizedBox(height: 30),
+                Input(
+                  category: '체중',
+                  onChanged: (value) {
+                    setState(() {
+                      if (value != "") weight = double.parse(value);
+                    });
+                  },
+                ),
+                const SizedBox(height: 30),
+                Input(
+                  category: '신장',
+                  onChanged: (value) {
+                    setState(() {
+                      if (value != "") height = double.parse(value);
+                    });
+                  },
+                ),
+                const SizedBox(height: 30),
+                // 성별 토글.
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      (result.isNaN ? '숫자를 입력해주세요' : '$result'),
-                      style: const TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    )
+                      '성별',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 60,
+                    ),
+                    BFToggleButton(where: 1, text1: '남', text2: '여'),
                   ],
                 ),
-              ),
-              const SizedBox(height: 30),
-              // 과제중/저체중/ ... 어떤 상태에 해당하는지 출력해 주어야 함.
-              ElevatedButton(
-                onPressed: onPressed,
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    )),
-                child: const Text("계산하기"),
-              ),
-              const SizedBox(height: 30),
-              // 정상 체중 보다 적게 나가면 '증량' 해야 합니다.
-              // 정상 체중 보다 많이 나가면 '감량' 해야 합니다.
-              Center(
-                child: Text(
-                  bmitext,
-                  style: const TextStyle(fontSize: 20, color: Colors.black),
-                  textAlign: TextAlign.center,
+                const SizedBox(height: 10),
+                const Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Text(
+                    '내 BMI 지수는',
+                    style: TextStyle(fontSize: 30, color: Colors.black),
+                  ),
                 ),
-              ),
-            ]),
+                // 나중에 여기에 계산된 BMI 지수가 나타남.
+                Container(
+                  width: 300,
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: const Color(0xFFC3DAEF),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        (result.isNaN ? '숫자를 입력해주세요' : '$result'),
+                        style: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
+                // 과제중/저체중/ ... 어떤 상태에 해당하는지 출력해 주어야 함.
+                ElevatedButton(
+                  onPressed: onPressed,
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      )),
+                  child: const Text("계산하기"),
+                ),
+                const SizedBox(height: 30),
+                // 정상 체중 보다 적게 나가면 '증량' 해야 합니다.
+                // 정상 체중 보다 많이 나가면 '감량' 해야 합니다.
+                Center(
+                  child: Text(
+                    bmitext,
+                    style: const TextStyle(fontSize: 20, color: Colors.black),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ]),
+        ),
       ),
     );
   }

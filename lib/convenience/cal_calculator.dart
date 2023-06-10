@@ -4,8 +4,6 @@ import 'package:best_friend/convenience/recommended_calories.dart';
 class CalCalculator extends StatelessWidget {
   const CalCalculator({super.key});
 
-  onPressed() {}
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,53 +14,78 @@ class CalCalculator extends StatelessWidget {
           ),
           actions: const []),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 40),
-        child: Column(children: [
-          const Text(
-            '오늘 먹은 음식',
-            style: TextStyle(
-              fontSize: 50,
+        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+        child: Column(
+          children: [
+            Flexible(
+              flex: 1,
+              child: Container(),
             ),
-          ),
-          const SizedBox(height: 15),
-          Container(
-            width: 450,
-            height: 30,
-            color: const Color.fromARGB(255, 244, 247, 140),
-          ),
-          const SizedBox(height: 500),
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              '전체 칼로리: ',
-              style: TextStyle(
-                fontSize: 30,
+            Flexible(
+              flex: 15,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      onChanged: (value) {},
+                      decoration: const InputDecoration(
+                        labelText: "오늘 먹은 음식을 검색하세요",
+                        prefixIcon: Icon(Icons.search),
+                      ),
+                    ),
+                  ),
+                  SingleChildScrollView(
+                    child: Container(),
+                  )
+                ],
               ),
             ),
-          )
-        ]),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                  Text(
+                    '전체 칼로리: ',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ]),
+              ),
+            )
+          ],
+        ),
       ),
-      bottomNavigationBar: Row(
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const RecommendedCalories(),
+      bottomNavigationBar: Container(
+        color: Colors.blue,
+        child: Row(
+          children: [
+            Container(
+              height: 60,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RecommendedCalories(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  '하루 권장 칼로리',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-              );
-            },
-            child: const Text(
-              '하루 권장 칼로리',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          Container(
-            height: 80,
-            color: Colors.blue,
-          ),
-        ],
+            Container(
+              height: 50,
+              color: Colors.blue,
+            ),
+          ],
+        ),
       ),
     );
   }

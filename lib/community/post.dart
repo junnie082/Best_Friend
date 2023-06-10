@@ -22,71 +22,73 @@ class Post extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Input(
-                  category: '제목',
-                  sizeOfBox: 240,
-                  onChanged: (value) {},
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Row(
-              children: [
-                StyleOfElevatedButton(
-                    text: '사진',
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Input(
+                    category: '제목',
+                    sizeOfBox: 240,
+                    onChanged: (value) {},
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Row(
+                children: [
+                  StyleOfElevatedButton(
+                      text: '사진',
+                      round: 10,
+                      bgColor: Colors.grey,
+                      textColor: Colors.black,
+                      size: 20,
+                      detailedScreen: CommunityScreen()),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  StyleOfElevatedButton(
+                    text: '동영상',
                     round: 10,
                     bgColor: Colors.grey,
                     textColor: Colors.black,
                     size: 20,
-                    detailedScreen: CommunityScreen()),
-                SizedBox(
-                  width: 20,
-                ),
-                StyleOfElevatedButton(
-                  text: '동영상',
-                  round: 10,
-                  bgColor: Colors.grey,
-                  textColor: Colors.black,
-                  size: 20,
-                  detailedScreen: CommunityScreen(),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Container(
-              width: 700,
-              height: 450,
-              decoration: const BoxDecoration(
-                color: Colors.grey,
+                    detailedScreen: CommunityScreen(),
+                  ),
+                ],
               ),
-              child: SizedBox(
+              const SizedBox(height: 10),
+              Container(
                 width: 700,
-                height: 200,
-                child: TextField(
-                  onChanged: textChanged,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    fillColor: Colors.grey,
-                    labelText: '내용을 입력하세요',
+                height: 450,
+                decoration: const BoxDecoration(
+                  color: Colors.grey,
+                ),
+                child: SizedBox(
+                  width: 700,
+                  height: 200,
+                  child: TextField(
+                    onChanged: textChanged,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey,
+                      labelText: '내용을 입력하세요',
+                    ),
                   ),
                 ),
               ),
-            ),
-            const StyleOfElevatedButton(
-                text: '글올리기',
-                round: 10,
-                bgColor: Color.fromARGB(255, 218, 130, 159),
-                textColor: Colors.black,
-                size: 20,
-                detailedScreen: CommunityScreen()),
-          ],
+              const StyleOfElevatedButton(
+                  text: '글올리기',
+                  round: 10,
+                  bgColor: Color.fromARGB(255, 218, 130, 159),
+                  textColor: Colors.black,
+                  size: 20,
+                  detailedScreen: CommunityScreen()),
+            ],
+          ),
         ),
       ),
     );

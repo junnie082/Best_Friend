@@ -41,46 +41,48 @@ class AuthPage extends StatelessWidget {
         ),
         body: Stack(alignment: Alignment.center, children: <Widget>[
           Container(color: Colors.white),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Container(
-                child: Image.network(
-                  imageUrl,
-                  fit: BoxFit.fill,
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Container(
+                  child: Image.network(
+                    imageUrl,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 850,
-                child: Stack(
-                  children: <Widget>[
-                    _inputForm(size),
-                    _authButton(size, context),
-                  ],
+                SizedBox(
+                  width: 850,
+                  child: Stack(
+                    children: <Widget>[
+                      _inputForm(size),
+                      _authButton(size, context),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                height: size.height * 0.1,
-              ),
-              Consumer<JoinOrLogin>(
-                builder: (context, joinOrLogin, child) => GestureDetector(
-                    onTap: () {
-                      joinOrLogin.toggle();
-                    },
-                    child: Text(
-                      joinOrLogin.isJoin
-                          ? "이미 계정이 있으신가요? 로그인하기"
-                          : "계정이 없으신가요? 회원가입하기",
-                      style: TextStyle(
-                        color: Colors.blue,
-                      ),
-                    )),
-              ),
-              Container(
-                height: size.height * 0.05,
-              ),
-            ],
+                Container(
+                  height: size.height * 0.1,
+                ),
+                Consumer<JoinOrLogin>(
+                  builder: (context, joinOrLogin, child) => GestureDetector(
+                      onTap: () {
+                        joinOrLogin.toggle();
+                      },
+                      child: Text(
+                        joinOrLogin.isJoin
+                            ? "이미 계정이 있으신가요? 로그인하기"
+                            : "계정이 없으신가요? 회원가입하기",
+                        style: TextStyle(
+                          color: Colors.blue,
+                        ),
+                      )),
+                ),
+                Container(
+                  height: size.height * 0.05,
+                ),
+              ],
+            ),
           ),
         ]));
   }
