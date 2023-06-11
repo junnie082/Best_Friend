@@ -1,8 +1,8 @@
+import 'package:best_friend/community/freepost.dart';
 import 'package:flutter/material.dart';
 import 'package:best_friend/community/all_categories.dart';
 import 'package:best_friend/community/FAQs.dart';
 import 'package:best_friend/community/information.dart';
-import 'package:best_friend/main_screens/main_community.dart';
 
 class BFToggleButtonCategories extends StatefulWidget {
   const BFToggleButtonCategories({Key? key}) : super(key: key);

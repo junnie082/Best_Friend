@@ -29,174 +29,212 @@ class _CommunityScreenState extends State<CommunityScreen> {
       ), // 여기서 에러 있었는데 gpt 가 고쳐줌.
       body: Padding(
         padding: const EdgeInsets.all(23),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.yellow,
-                  borderRadius: BorderRadius.circular(10),
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.yellow,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Search()),
+                  );
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.yellow),
                 ),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Search()),
-                    );
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.yellow),
+                child: const SizedBox(
+                  width: 500,
+                  height: 40,
+                  child: Center(
+                    child: Text(
+                      '검색',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                  child: const SizedBox(
-                    width: 500,
-                    height: 40,
-                    child: Center(
-                      child: Text(
-                        '검색',
-                        style: TextStyle(
-                          color: Colors.black,
+                ),
+              ),
+            ),
+
+            const SizedBox(
+              height: 5,
+            ),
+
+            // 뉴스 기사(복지 정보)
+            const Articles(
+              link: "http://www.mapowelfare.or.kr/bbs/board.php?bo_table=0301",
+              queryString: 'td.td_subject.text-left > a',
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+
+            const Row(
+              children: [
+                // 자유 버튼
+                BFToggleButtonCategories(),
+                SizedBox(
+                  width: 50,
+                ),
+                SizedBox(
+                  width: 70,
+                  height: 35,
+                  child: StyleOfElevatedButton(
+                      detailedScreen: Post(),
+                      text: '글쓰기',
+                      round: 0,
+                      bgColor: Color(0xFFEFC6EB),
+                      textColor: Colors.black,
+                      size: 12),
+                ),
+              ],
+            ),
+
+            Column(
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "정보 | 마포보장구수리센터    ",
+                      style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                          color: Colors.black),
                     ),
                   ),
                 ),
-              ),
-
-              const SizedBox(
-                height: 5,
-              ),
-
-              // 뉴스 기사(복지 정보)
-              const Articles(
-                link:
-                    "http://www.mapowelfare.or.kr/bbs/board.php?bo_table=0301",
-                queryString: 'td.td_subject.text-left > a',
-              ),
-              const SizedBox(
-                height: 2,
-              ),
-
-              // 커뮤니티의 [전체], [자유], [정보], [질문]
-              const Row(
-                children: [
-                  // 카테고리 버튼
-                  BFToggleButtonCategories(),
-                  SizedBox(
-                    width: 50,
+                //Text("정보 | 마포보장구수리센터    ")),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "질문 | 이럴땐 어떻게 하나요?    ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
                   ),
-                  SizedBox(
-                    width: 70,
-                    height: 35,
-                    child: StyleOfElevatedButton(
-                        detailedScreen: Post(),
-                        text: '글쓰기',
-                        round: 0,
-                        bgColor: Color(0xFFEFC6EB),
-                        textColor: Colors.black,
-                        size: 12),
-                  ),
-                ],
-              ),
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ReadPage()));
-                      },
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "정보 | 마포보장구수리센터   ",
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
-                        ),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => ReadPage()));
-                      },
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "질문 | 이럴땐 어떻게 하나요?    ",
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
-                        ),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => ReadPage()));
-                      },
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "질문 | 저희 아이가 장애가 있습니다. 혹시..    ",
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
-                        ),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => ReadPage()));
-                      },
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "자유 | 저는 차별받을 때 이렇게 행동합니다   ",
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
-                        ),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => ReadPage()));
-                      },
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "자유 | 여러분들 정부에서 장애인을 도와주는 제도..",
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
-              )
-            ],
-          ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "질문 | 저희 아이가 장애가 있습니다. 혹시..    ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "자유 | 저는 차별받을 때 이렇게 행동합니다   ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
+
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "자유 | 여러분들 정부에서 장애인을 도와주는 제도..",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
+
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "정보 | 권익 옹호 기관별 업무 및 연락처 안내  ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
+
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "정보 | 마포구 내 사회복지시설 안내  ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
+
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "질문 | 저희 아이가 장애가 있습니다. 혹시..  ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
