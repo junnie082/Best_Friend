@@ -84,7 +84,7 @@ class _BFToggleButtonState extends State<BFToggleButtonCategories> {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation, secondaryAnimation) =>
-                          const CommunityScreen(),
+                          const FreePost(),
                     ),
                   );
                 },
