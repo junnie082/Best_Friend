@@ -28,7 +28,6 @@ class _ArticlesState extends State<Articles> {
     final url = Uri.parse(widget.link);
     final response = await http.get(url);
     final document = parser.parse(response.body);
-    //dom.Document html = dom.Document.html(response.body);
 
     final mainTitles = document
         .querySelectorAll(widget.queryString)
@@ -61,7 +60,6 @@ class _ArticlesState extends State<Articles> {
             Article(url: detailLink[index], title: titles[index], urlImage: ''),
       );
 
-      DataOfArticles list = DataOfArticles();
       DataOfArticles.listArticles = articles;
     });
   }

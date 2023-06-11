@@ -1,3 +1,4 @@
+import 'package:best_friend/api/fetch_food.dart';
 import 'package:flutter/material.dart';
 import 'package:best_friend/appBar/BFAppBar.dart';
 import 'package:best_friend/convenience/BMI.dart';
@@ -36,6 +37,10 @@ class ConvenienceScreen extends StatelessWidget {
               ),
               const SizedBox(
                 height: 50,
+              ),
+              Foods(
+                link: 'https://www.dietshin.com/calorie/calorie_main.asp',
+                queryString: 'td.subject > a")',
               ),
               SizedBox(
                 width: 500, // Adjust the width as desired

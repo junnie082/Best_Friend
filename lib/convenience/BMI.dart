@@ -124,7 +124,7 @@ class _BMIState extends State<BMI> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 10),
                 // 과제중/저체중/ ... 어떤 상태에 해당하는지 출력해 주어야 함.
                 ElevatedButton(
                   onPressed: onPressed,
@@ -135,13 +135,13 @@ class _BMIState extends State<BMI> {
                       )),
                   child: const Text("계산하기"),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 10),
                 // 정상 체중 보다 적게 나가면 '증량' 해야 합니다.
                 // 정상 체중 보다 많이 나가면 '감량' 해야 합니다.
                 Center(
                   child: Text(
                     bmitext,
-                    style: const TextStyle(fontSize: 20, color: Colors.black),
+                    style: const TextStyle(fontSize: 18, color: Colors.black),
                     textAlign: TextAlign.center,
                   ),
                 ),
