@@ -5,7 +5,6 @@ import 'package:best_friend/textfields/input.dart';
 
 class Post extends StatelessWidget {
   const Post({super.key});
-
   // 여기에서 입력된 값을 handling 함.
   void textChanged(String value) {
     print(value);

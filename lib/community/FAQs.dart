@@ -6,6 +6,8 @@ import 'package:best_friend/search/search.dart';
 import 'package:flutter/material.dart';
 import 'package:best_friend/api/fetch_articles.dart';
 
+import 'readpage.dart';
+
 // <web scraping> https://www.youtube.com/watch?v=9ZfRE_DN9a0
 
 class FAQs extends StatefulWidget {
@@ -98,7 +100,70 @@ class _CommunityScreenState extends State<FAQs> {
               ],
             ),
 
-            // 글 등록하기. (데이터 베이스 필요?)
+            Column(
+              children: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ReadPage()));
+                    },
+                    child: Text("질문 | 첫번째 글 아무거나 수정해서 써주세요    ")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ReadPage()));
+                    },
+                    child: Text("질문 | 두번째 글 아무거나 수정해서 써주세요    ")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ReadPage()));
+                    },
+                    child: Text("질문 | 세번째 글 아무거나 수정해서 써주세요    ")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ReadPage()));
+                    },
+                    child: Text("질문 | 네번째 글 아무거나 수정해서 써주세요    ")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ReadPage()));
+                    },
+                    child: Text("질문 | 다섯번째 글 아무거나 수정해서 써주세요")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ReadPage()));
+                    },
+                    child: Text("질문 | 여섯번째 글 아무거나 수정해서 써주세요")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ReadPage()));
+                    },
+                    child: Text("질문 | 일곱번째 글 아무거나 수정해서 써주세요")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ReadPage()));
+                    },
+                    child: Text("질문 | 여덟번째 글 아무거나 수정해서 써주세요")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ReadPage()));
+                    },
+                    child: Text("질문 | 아홉번째 글 아무거나 수정해서 써주세요")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ReadPage()));
+                    },
+                    child: Text("질문 | 열번째 글 아무거나 수정해서 써주세요    ")),
+              ],
+            )
           ],
         ),
       ),
