@@ -84,7 +84,7 @@ class _NoticesState extends State<Notices> {
                   child: ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: Text(
-                      '${i + 1}. ${notices[i].title}',
+                      '정보 | ${notices[i].title}',
                       style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,

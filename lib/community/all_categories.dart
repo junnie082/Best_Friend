@@ -102,65 +102,87 @@ class _CommunityScreenState extends State<AllCategories> {
             Column(
               children: [
                 TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 첫번째 글 아무거나 수정해서 써주세요    ")),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "정보 | 마포보장구수리센터    ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
+                //Text("정보 | 마포보장구수리센터    ")),
                 TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 두번째 글 아무거나 수정해서 써주세요    ")),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "질문 | 이럴땐 어떻게 하나요?    ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
                 TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 세번째 글 아무거나 수정해서 써주세요    ")),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "질문 | 저희 아이가 장애가 있습니다. 혹시..    ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
                 TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("자유 | 네번째 글 아무거나 수정해서 써주세요    ")),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "자유 | 저는 차별받을 때 이렇게 행동합니다   ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
+
                 TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("자유 | 다섯번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 여섯번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("자유 | 일곱번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 여덟번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("자유 | 아홉번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("자유 | 열번째 글 아무거나 수정해서 써주세요    ")),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "자유 | 여러분들 정부에서 장애인을 도와주는 제도..",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
               ],
             )
           ],

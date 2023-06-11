@@ -1,8 +1,8 @@
+import 'package:best_friend/api/fetch_notices.dart';
 import 'package:best_friend/appBar/BFAppBar.dart';
 import 'package:best_friend/buttons/style_elevated_button.dart';
 import 'package:best_friend/buttons/toggle_button_kinds_of_disabled.dart';
 import 'package:best_friend/community/post.dart';
-import 'package:best_friend/community/readpage.dart';
 import 'package:best_friend/search/search.dart';
 import 'package:flutter/material.dart';
 import 'package:best_friend/api/fetch_articles.dart';
@@ -105,70 +105,10 @@ class _CommunityScreenState extends State<Information> {
             // 글 등록하기. (데이터 베이스 필요?)
 
             // 글 목록
-            Column(
-              children: [
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 첫번째 글 아무거나 수정해서 써주세요    ")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 두번째 글 아무거나 수정해서 써주세요    ")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 세번째 글 아무거나 수정해서 써주세요    ")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 네번째 글 아무거나 수정해서 써주세요    ")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 다섯번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 여섯번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 일곱번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 여덟번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 아홉번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("정보 | 열번째 글 아무거나 수정해서 써주세요    ")),
-              ],
-            )
+            const Notices(
+              link: "http://www.mapowelfare.or.kr/bbs/board.php?bo_table=0305",
+              queryString: "td.td_subject.text-left > a",
+            ),
           ],
         ),
       ),

@@ -103,65 +103,37 @@ class _CommunityScreenState extends State<FAQs> {
             Column(
               children: [
                 TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 첫번째 글 아무거나 수정해서 써주세요    ")),
+                  onPressed: () {
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "질문 | 이럴땐 어떻게 하나요?    ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
                 TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 두번째 글 아무거나 수정해서 써주세요    ")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 세번째 글 아무거나 수정해서 써주세요    ")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 네번째 글 아무거나 수정해서 써주세요    ")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 다섯번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 여섯번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 일곱번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 여덟번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 아홉번째 글 아무거나 수정해서 써주세요")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ReadPage()));
-                    },
-                    child: Text("질문 | 열번째 글 아무거나 수정해서 써주세요    ")),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReadPage()));
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "질문 | 저희 아이가 장애가 있습니다. 혹시..   ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
               ],
             )
           ],
