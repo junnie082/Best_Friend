@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "138537994298",
+    "project_id": "bestfriend-189af",
+    "storage_bucket": "bestfriend-189af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138537994298:android:3d0a21643aa4faeb100d03",
+        "android_client_info": {
+          "package_name": "com.example.best_friend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138537994298-9sro38c95hktdae2c5ah7nq28tkmcohp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAoOwJ-aqQ5jNpQouIum7oD9xKU6DpEQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138537994298-9sro38c95hktdae2c5ah7nq28tkmcohp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
